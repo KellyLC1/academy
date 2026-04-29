@@ -1,5 +1,5 @@
 <template>
-  <section class="forms-section">
+  <section class="forms-section" id="contact">
     <div class="container">
 
       <h2>Inscrivez-vous ou contactez-nous</h2>

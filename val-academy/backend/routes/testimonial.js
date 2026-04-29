@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 // POST ajouter un avis via token d'invitation
 router.post('/add',
   body('name').isString().trim().notEmpty(),
-  body('text').isString().trim().notEmpty(),
+  body('text').isString().trim().notEmpty().isLength({ max: 2000 }),
   body('token').isString().notEmpty(),
   async (req, res) => {
     const errors = validationResult(req);
@@ -45,7 +45,7 @@ router.post('/add',
 // Fonction utilitaire pour envoyer un email d'invitation
 envoyerInvitation = async (email, token) => {
   // À personnaliser selon votre domaine
-  const lien = `https://<ton-domaine>/avis?token=${token}`;
+  const lien = `http://localhost:5173/avis?token=${token}`;
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,

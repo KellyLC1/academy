@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="nav-inner">
       <a href="#" class="logo" aria-label="Accueil">
-        <img src="/src/assets/Logo_Beige.813c71e4c4f17f8092c6.png" alt="Logo ValAcademy" class="logo-img" />
+        <img src="/src/assets/logo_val_academy.png" alt="Logo ValAcademy" class="logo-img" />
       </a>
       <button class="burger" @click="showMenu = !showMenu" aria-label="Menu" v-if="isMobile">
         <span :class="{'open': showMenu}"></span>
@@ -12,10 +12,10 @@
       <ul class="nav-links" :class="{ open: showMenu || !isMobile }">
         <li><a href="#haccp">HACCP</a></li>
         <li><a href="#whyus">Pourquoi nous</a></li>
-        <li><a href="#certifs">Certifications</a></li>
+        <li><a href="#certifications">Certifications</a></li>
         <li><a href="#temoignages">Avis</a></li>
         <li><a href="#formations">Formations</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
       <a href="#inscription" class="nav-cta">S'inscrire</a>
     </div>
@@ -49,8 +49,8 @@ onUnmounted(() => {
   z-index: 100;
   background: rgba(255, 253, 248, 0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(245, 166, 35, 0.15);
-  padding: 0 2%;
+  border-bottom: 2px solid var(--accent);
+  padding: 1% 2%;
 }
 
 .nav-inner {
@@ -109,7 +109,7 @@ onUnmounted(() => {
 }
 
 .nav-links a {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-mid);
   text-decoration: none;
   font-weight: 400;
@@ -121,18 +121,18 @@ onUnmounted(() => {
 }
 
 .nav-cta {
-  background: var(--primary);
-  color: white;
+  background: var(--accent);
+  color: #2A2A2A;
   padding: 10px 22px;
   border-radius: 999px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   transition: background 0.2s, transform 0.2s;
 }
 
 .nav-cta:hover {
-  background: var(--primary-hover);
+  background: var(--accent-hover);
   transform: scale(1.03);
 }
 

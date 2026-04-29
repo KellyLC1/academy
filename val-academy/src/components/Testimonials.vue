@@ -16,14 +16,14 @@
         </button>
         <Swiper
           :modules="[Autoplay, Navigation]"
-          :slides-per-view="3"
+          :slides-per-view="4"
           :space-between="20"
           :loop="true"
           :autoplay="{ delay: 2800, disableOnInteraction: false }"
           :breakpoints="{
             0:    { slidesPerView: 1 },
             640:  { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
           }"
           class="swiper"
           @swiper="onSwiper"
@@ -100,7 +100,7 @@ onMounted(fetchTestimonials)
 
 .swiper {
   padding: 40px 0 10px;
-  height: 340px; /* hauteur fixe pour aligner les cards */
+  height: 300px; /* hauteur fixe pour aligner les cards */
 }
 
 :deep(.swiper-slide) {
@@ -115,6 +115,7 @@ onMounted(fetchTestimonials)
   border-radius: var(--radius-lg);
   padding: 28px;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   transition: transform 0.25s, box-shadow 0.25s;
@@ -122,11 +123,11 @@ onMounted(fetchTestimonials)
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(245, 166, 35, 0.1);
+  box-shadow: 0 10px 28px rgba(175, 164, 206, 0.15);
 }
 
 .stars {
-  color: var(--primary);
+  color: var(--accent);
   font-size: 15px;
   margin-bottom: 12px;
   letter-spacing: 2px;
@@ -135,10 +136,17 @@ onMounted(fetchTestimonials)
 .text {
   font-size: 14px;
   color: var(--text-mid);
-  line-height: 1.7;
+  line-height: 1.6;
   font-style: italic;
   flex: 1;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  min-height: 120px;
+  max-height: 120px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .author {
@@ -160,23 +168,23 @@ onMounted(fetchTestimonials)
 }
 :deep(.swiper-button-prev),
 :deep(.swiper-button-next) {
-  color: #e67e22 !important;
+  color: var(--accent) !important;
   background: none !important;
   border: none !important;
   box-shadow: none !important;
 }
 :deep(.swiper-button-prev)::after,
 :deep(.swiper-button-next)::after {
-  color: #e67e22 !important;
+  color: var(--accent) !important;
   font-size: 38px !important;
 }
 :deep(.swiper-button-prev):hover,
 :deep(.swiper-button-next):hover {
-  color: #c96c17 !important;
+  color: var(--accent-hover) !important;
 }
 :deep(.swiper-button-disabled),
 :deep(.swiper-button-disabled)::after {
-  color: #ffd9b3 !important;
+  color: #f5df4d80 !important;
   opacity: 0.7 !important;
 }
 
@@ -209,7 +217,7 @@ onMounted(fetchTestimonials)
   height: 38px;
   background: none;
   border: none;
-  color: #e67e22;
+  color: var(--accent);
   font-size: 44px;
   display: flex;
   align-items: center;
@@ -230,7 +238,7 @@ onMounted(fetchTestimonials)
 }
 
 .custom-swiper-button:hover {
-  color: #c96c17;
+  color: var(--accent-hover);
 }
 
 @media (max-width: 900px) {
@@ -258,44 +266,4 @@ onMounted(fetchTestimonials)
   }
 }
 
-.testimonials-section {
-  background: var(--cream);
-  padding: 80px 0;
-}
-.testimonials-section h2 {
-  text-align: center;
-  font-size: 2.1rem;
-  color: var(--text);
-  margin-bottom: 38px;
-}
-.testimonials-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  justify-content: center;
-}
-.testimonial-card {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(31,41,55,0.07);
-  padding: 32px 28px 24px 28px;
-  max-width: 340px;
-  min-width: 220px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: 1.08rem;
-  position: relative;
-}
-.testimonial-text {
-  color: #444;
-  margin-bottom: 18px;
-  font-style: italic;
-}
-.testimonial-name {
-  color: #9C8570;
-  font-weight: 600;
-  font-size: 1rem;
-  margin-top: 8px;
-}
 </style>

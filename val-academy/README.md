@@ -62,7 +62,7 @@ Plateforme complète pour centre de formation professionnelle : gestion des for
   ```
 - Suivre les instructions pour définir l’email et le mot de passe admin.
 
-## Fonctionnement des avis clients
+## Fonctionnement des avis clients (work in progress)
 
 - L’admin génère une invitation (email du client)
 - Le client reçoit un lien unique (token)

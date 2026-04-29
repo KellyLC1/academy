@@ -1,5 +1,5 @@
 <template>
-  <section class="certifs" id="certifs">
+  <section class="certifs" id="whyus">
     <div class="container">
 
       <h2>Un centre certifié et reconnu</h2>

@@ -25,7 +25,7 @@ const features = [
   {
     icon: '💰',
     title: 'Formation financée',
-    desc: 'Nos formations sont éligibles au financement OPCO. Nous vous accompagnons dans toutes les démarches administratives.'
+    desc: 'Nos formations sont éligibles au financement OPCO. Nous vous accompagnons aussi pour des financements directs selon vos besoins.'
   },
   {
     icon: '👨‍🏫',
@@ -45,7 +45,7 @@ const features = [
   {
     icon: '📈',
     title: 'Résultats prouvés',
-    desc: 'Plus de 500 entreprises accompagnées avec succès vers la conformité HACCP et les meilleures pratiques hygiéniques.'
+    desc: 'Plus de 150 entreprises accompagnées avec succès vers la conformité HACCP et les meilleures pratiques hygiéniques.'
   },
   {
     icon: '🍽️',
@@ -89,13 +89,13 @@ const features = [
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 28px rgba(245, 223, 77, 0.15);
 }
 
 .icon-wrap {
   width: 44px;
   height: 44px;
-  background: var(--primary-light);
+  background: var(--accent);
   border-radius: 12px;
   display: flex;
   align-items: center;
