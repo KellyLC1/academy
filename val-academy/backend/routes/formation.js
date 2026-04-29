@@ -17,8 +17,22 @@ router.get('/', async (req, res) => {
 // POST ajouter une formation (protégé)
 router.post('/', auth, validateFormation, async (req, res) => {
   try {
-    const { title, description, duration, price } = req.body;
-    const formation = await Formation.create({ title, description, duration, price });
+    const { title, description, duration, price, image, accessibility, prerequisites, objectives, coursContent, pedagogicalMethods, evaluation, requiredMaterials, trainer } = req.body;
+    const formation = await Formation.create({ 
+      title, 
+      description, 
+      duration, 
+      price, 
+      image,
+      accessibility,
+      prerequisites,
+      objectives,
+      coursContent,
+      pedagogicalMethods,
+      evaluation,
+      requiredMaterials,
+      trainer
+    });
     res.status(201).json(formation);
   } catch (err) {
     res.status(500).json({ message: 'Erreur ajout formation' });
@@ -28,10 +42,10 @@ router.post('/', auth, validateFormation, async (req, res) => {
 // PUT modifier une formation (protégé)
 router.put('/:id', auth, validateFormation, async (req, res) => {
   try {
-    const { title, description, duration, price } = req.body;
+    const { title, description, duration, price, image, accessibility, prerequisites, objectives, coursContent, pedagogicalMethods, evaluation, requiredMaterials, trainer } = req.body;
     const formation = await Formation.findByIdAndUpdate(
       req.params.id,
-      { title, description, duration, price },
+      { title, description, duration, price, image, accessibility, prerequisites, objectives, coursContent, pedagogicalMethods, evaluation, requiredMaterials, trainer },
       { new: true }
     );
     res.json(formation);

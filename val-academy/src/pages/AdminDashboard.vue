@@ -31,13 +31,21 @@
 
       <section class="dashboard-card">
         <h3>Formations</h3>
-        <form @submit.prevent="addFormation" class="add-form">
+        <form @submit.prevent="addFormation" class="add-form formations-form">
           <input v-model="newFormation.title" type="text" placeholder="Titre de la formation" required />
-          <input v-model="newFormation.description" type="text" placeholder="Description" />
+          <input v-model="newFormation.description" type="text" placeholder="Description courte" />
           <input v-model="newFormation.duration" type="text" placeholder="Durée" />
-          <input v-model="newFormation.price" type="text" placeholder="Prix" />
+          <input v-model="newFormation.price" type="text" placeholder="Prix / Tarif" />
           <input v-model="newFormation.image" type="text" placeholder="URL de l'image" />
-          <button type="submit">Ajouter</button>
+          <textarea v-model="newFormation.accessibility" placeholder="Accessibilité (ex: Pour tous)"></textarea>
+          <textarea v-model="newFormation.prerequisites" placeholder="Prérequis"></textarea>
+          <textarea v-model="newFormation.objectives" placeholder="Objectifs (1 par ligne)"></textarea>
+          <textarea v-model="newFormation.coursContent" placeholder="Contenu du cours (1 item par ligne)"></textarea>
+          <textarea v-model="newFormation.pedagogicalMethods" placeholder="Méthodes pédagogiques (1 par ligne)"></textarea>
+          <textarea v-model="newFormation.evaluation" placeholder="Modalités d'évaluation"></textarea>
+          <textarea v-model="newFormation.requiredMaterials" placeholder="Matériel requis"></textarea>
+          <input v-model="newFormation.trainer" type="text" placeholder="Formateur/Formatrice" />
+          <button type="submit">Ajouter Formation</button>
         </form>
         <div v-if="formationError" class="error">{{ formationError }}</div>
         <ul class="formation-list">
@@ -59,12 +67,20 @@
         <div v-if="editMode" class="edit-modal">
           <div class="edit-modal-content">
             <h4>Modifier la formation</h4>
-            <form @submit.prevent="updateFormation" class="add-form">
+            <form @submit.prevent="updateFormation" class="add-form formations-form">
               <input v-model="editFormationData.title" type="text" placeholder="Titre" required />
-              <input v-model="editFormationData.description" type="text" placeholder="Description" />
+              <input v-model="editFormationData.description" type="text" placeholder="Description courte" />
               <input v-model="editFormationData.duration" type="text" placeholder="Durée" />
-              <input v-model="editFormationData.price" type="text" placeholder="Prix" />
+              <input v-model="editFormationData.price" type="text" placeholder="Prix / Tarif" />
               <input v-model="editFormationData.image" type="text" placeholder="URL de l'image" />
+              <textarea v-model="editFormationData.accessibility" placeholder="Accessibilité"></textarea>
+              <textarea v-model="editFormationData.prerequisites" placeholder="Prérequis"></textarea>
+              <textarea v-model="editFormationData.objectives" placeholder="Objectifs (1 par ligne)"></textarea>
+              <textarea v-model="editFormationData.coursContent" placeholder="Contenu du cours (1 item par ligne)"></textarea>
+              <textarea v-model="editFormationData.pedagogicalMethods" placeholder="Méthodes pédagogiques (1 par ligne)"></textarea>
+              <textarea v-model="editFormationData.evaluation" placeholder="Modalités d'évaluation"></textarea>
+              <textarea v-model="editFormationData.requiredMaterials" placeholder="Matériel requis"></textarea>
+              <input v-model="editFormationData.trainer" type="text" placeholder="Formateur/Formatrice" />
               <button type="submit">Enregistrer</button>
               <button type="button" @click="cancelEdit" class="cancel-btn">Annuler</button>
             </form>
@@ -101,10 +117,39 @@ const newPhoto = ref({ url: '', title: '', formation: '' })
 const photoError = ref('')
 
 const formations = ref([])
-const newFormation = ref({ title: '', description: '', duration: '', price: '' })
+const newFormation = ref({ 
+  title: '', 
+  description: '', 
+  duration: '', 
+  price: '',
+  image: '',
+  accessibility: '',
+  prerequisites: '',
+  objectives: '',
+  coursContent: '',
+  pedagogicalMethods: '',
+  evaluation: '',
+  requiredMaterials: '',
+  trainer: ''
+})
 const formationError = ref('')
 const editMode = ref(false)
-const editFormationData = ref({ _id: '', title: '', description: '', duration: '', price: '' })
+const editFormationData = ref({ 
+  _id: '',
+  title: '', 
+  description: '', 
+  duration: '', 
+  price: '',
+  image: '',
+  accessibility: '',
+  prerequisites: '',
+  objectives: '',
+  coursContent: '',
+  pedagogicalMethods: '',
+  evaluation: '',
+  requiredMaterials: '',
+  trainer: ''
+})
 
 const inviteEmail = ref('')
 const inviteError = ref('')
@@ -161,10 +206,30 @@ async function fetchFormations() {
 async function addFormation() {
   formationError.value = ''
   try {
-    await axios.post('http://localhost:5000/api/formation', newFormation.value, {
+    const formationData = {
+      ...newFormation.value,
+      objectives: newFormation.value.objectives.split('\n').filter(o => o.trim()),
+      coursContent: newFormation.value.coursContent.split('\n').filter(c => c.trim()),
+      pedagogicalMethods: newFormation.value.pedagogicalMethods.split('\n').filter(m => m.trim())
+    }
+    await axios.post('http://localhost:5000/api/formation', formationData, {
       headers: { Authorization: 'Bearer ' + getToken() }
     })
-    newFormation.value = { title: '', description: '', duration: '', price: '' }
+    newFormation.value = { 
+      title: '', 
+      description: '', 
+      duration: '', 
+      price: '',
+      image: '',
+      accessibility: '',
+      prerequisites: '',
+      objectives: '',
+      coursContent: '',
+      pedagogicalMethods: '',
+      evaluation: '',
+      requiredMaterials: '',
+      trainer: ''
+    }
     fetchFormations()
   } catch (err) {
     formationError.value = err.response?.data?.message || 'Erreur ajout formation'
@@ -176,7 +241,19 @@ function editFormation(formation) {
 }
 async function updateFormation() {
   try {
-    await axios.put(`http://localhost:5000/api/formation/${editFormationData.value._id}`, editFormationData.value, {
+    const formationData = {
+      ...editFormationData.value,
+      objectives: Array.isArray(editFormationData.value.objectives) 
+        ? editFormationData.value.objectives 
+        : editFormationData.value.objectives.split('\n').filter(o => o.trim()),
+      coursContent: Array.isArray(editFormationData.value.coursContent)
+        ? editFormationData.value.coursContent
+        : editFormationData.value.coursContent.split('\n').filter(c => c.trim()),
+      pedagogicalMethods: Array.isArray(editFormationData.value.pedagogicalMethods)
+        ? editFormationData.value.pedagogicalMethods
+        : editFormationData.value.pedagogicalMethods.split('\n').filter(m => m.trim())
+    }
+    await axios.put(`http://localhost:5000/api/formation/${editFormationData.value._id}`, formationData, {
       headers: { Authorization: 'Bearer ' + getToken() }
     })
     editMode.value = false
@@ -187,7 +264,22 @@ async function updateFormation() {
 }
 function cancelEdit() {
   editMode.value = false
-  editFormationData.value = { _id: '', title: '', description: '', duration: '', price: '' }
+  editFormationData.value = { 
+    _id: '',
+    title: '', 
+    description: '', 
+    duration: '', 
+    price: '',
+    image: '',
+    accessibility: '',
+    prerequisites: '',
+    objectives: '',
+    coursContent: '',
+    pedagogicalMethods: '',
+    evaluation: '',
+    requiredMaterials: '',
+    trainer: ''
+  }
 }
 async function deleteFormation(id) {
   try {
@@ -305,6 +397,25 @@ onMounted(() => {
   border: 1.5px solid #e0e0e0;
   font-size: 15px;
   background: #faf9f7;
+}
+.add-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1.5px solid #e0e0e0;
+  font-size: 14px;
+  background: #faf9f7;
+  font-family: inherit;
+  min-height: 60px;
+  resize: vertical;
+}
+.formations-form {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.formations-form input,
+.formations-form textarea {
+  width: 100%;
 }
 .add-form button {
   background: #9C8570;
