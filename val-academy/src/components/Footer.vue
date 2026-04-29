@@ -5,7 +5,7 @@
       <div class="footer-grid">
 
         <div class="footer-brand-col">
-          <div class="brand">Val<span>Academy</span> Formations</div>
+          <div class="brand">Val<span>Academy</span> International <br>Formations</div>
           <p class="brand-desc">
             Centre spécialisé en formations HACCP et hygiène alimentaire,
             certifié Qualiopi et reconnu par le Ministère de l'Agriculture.
@@ -41,7 +41,8 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <ul>
-            <li>06 12 34 56 78</li>
+            <li>01 62 37 02 62</li>
+            <li>06 58 68 40 43</li>
             <li>Lun – Ven : 9h – 18h</li>
             <li><a href="#contact">Formulaire de contact</a></li>
             <li><a href="#inscription">S'inscrire</a></li>
@@ -51,7 +52,7 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© {{ year }} VAL Academy Formation — Tous droits réservés</span>
+        <span>© {{ year }} VAL Academy International Formation — Tous droits réservés</span>
         <span class="qualiopi-mention">✦ Certifié Qualiopi · Reconnu Ministère de l'Agriculture</span>
       </div>
 

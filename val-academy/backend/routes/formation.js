@@ -4,7 +4,7 @@ const Formation = require('../models/Formation');
 const auth = require('../middleware/auth');
 const { validateFormation } = require('../middleware/validators');
 
-// GET toutes les formations
+// GET toutes les formations (public)
 router.get('/', async (req, res) => {
   try {
     const formations = await Formation.find().sort({ createdAt: -1 });

@@ -12,6 +12,7 @@ const validateLogin = [
   }
 ];
 
+// ajout formations dans l'admin
 const validateFormation = [
   body('title').isString().trim().notEmpty().withMessage('Titre requis'),
   body('description').optional().isString(),
@@ -26,6 +27,7 @@ const validateFormation = [
   }
 ];
 
+//ajout photos dans l'admin
 const validatePhoto = [
   body('url').isURL().withMessage('URL valide requise'),
   body('title').optional().isString(),

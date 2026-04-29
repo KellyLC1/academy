@@ -13,7 +13,7 @@ const formationSchema = new mongoose.Schema({
   pedagogicalMethods: [String], // Méthodes pédagogiques (tableau)
   evaluation: String, // Modalités d'évaluation
   requiredMaterials: String, // Matériel requis
-  trainer: String, // Formateur/Formatrice
+  trainer: String, // Formateur
   createdAt: { type: Date, default: Date.now }
 });
 

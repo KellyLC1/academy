@@ -543,32 +543,48 @@ onMounted(() => {
 .edit-modal {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.18);
+  background: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 2000;
+  padding: 20px;
+  overflow-y: auto;
 }
 .edit-modal-content {
   background: #fff;
   border-radius: 12px;
-  padding: 32px 28px;
-  min-width: 320px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  padding: 32px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
 }
-.cancel-btn {
-  background: #bbb;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 18px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-left: 10px;
-  transition: background 0.2s;
+.edit-modal-content h4 {
+  margin-bottom: 24px;
+  color: #2d2d2d;
+  font-size: 1.4rem;
 }
-.cancel-btn:hover {
-  background: #888;
+.edit-modal-content h4 {
+  margin-bottom: 24px;
+  color: #2d2d2d;
+  font-size: 1.4rem;
+}
+.edit-modal-content .add-form {
+  display: flex;
+  flex-direction: column;
+}
+.edit-modal-content input,
+.edit-modal-content textarea {
+  margin-bottom: 12px;
+}
+.edit-modal-content button {
+  margin-top: 12px;
+}
+.edit-modal-content .cancel-btn {
+  margin-left: 0;
+  margin-top: 12px;
 }
 .error {
   color: #c00;
