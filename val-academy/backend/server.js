@@ -32,7 +32,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log('MongoDB connecté'))
 .catch((err) => console.error('Erreur MongoDB:', err));
 
-// Exemple de route pour le formulaire de contact
+// routes
 const contactRoutes = require('./routes/contact');
 const inscriptionRoutes = require('./routes/inscription');
 const adminRoutes = require('./routes/admin');

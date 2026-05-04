@@ -52,7 +52,7 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© {{ year }} VAL Academy International Formation — Tous droits réservés</span>
+        <span>© {{ year }} Kelly Le Cardinal — Tous droits réservés</span>
         <span class="qualiopi-mention">✦ Certifié Qualiopi · Reconnu Ministère de l'Agriculture</span>
       </div>
 

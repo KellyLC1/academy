@@ -110,7 +110,7 @@ envoyerInvitation = async (email, token) => {
       </html>
     `
   });
-};
+}; 
 
 // POST générer une invitation (admin)
 router.post('/invite', auth, body('email').isEmail(), async (req, res) => {

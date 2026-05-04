@@ -132,10 +132,6 @@ h1 em {
   font-style: normal;
 }
 
-/* h1 span {
-  color: var(--primary);
-} */
-
 /* Sous-titre */
 .subtitle {
   font-size: 17px;
