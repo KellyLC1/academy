@@ -1,4 +1,4 @@
-# Val'Academy
+# Academy
 
 Plateforme complète pour centre de formation professionnelle : gestion des formations, galerie photos, avis clients dynamiques, et espace admin sécurisé.
 

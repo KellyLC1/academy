@@ -4,7 +4,7 @@
 
       <h2>Centre spécialisé HACCP</h2>
       <p class="section-sub">
-        VAL Academy est la référence nationale en formations hygiène alimentaire HACCP,
+        Academy est la référence nationale en formations hygiène alimentaire HACCP,
         essentielles pour garantir la conformité et la sécurité alimentaire en entreprise.
       </p>
 

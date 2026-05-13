@@ -55,9 +55,9 @@ envoyerInvitation = async (email, token) => {
     },
   });
   await transporter.sendMail({
-    from: process.env.SMTP_FROM || 'no-reply@valacademy.com',
+    from: process.env.SMTP_FROM || 'no-reply@academy.com',
     to: email,
-    subject: "Votre invitation à donner un avis sur Val'Academy",
+    subject: "Votre invitation à donner un avis sur Academy",
     html: `
       <!DOCTYPE html>
       <html>
@@ -82,12 +82,12 @@ envoyerInvitation = async (email, token) => {
         <body>
           <div class="container">
             <div class="header">
-              <h1>✨ Val'Academy</h1>
+              <h1>✨ Academy</h1>
             </div>
             <div class="content">
               <span class="badge">Invitation à donner votre avis</span>
               <p>Bonjour,</p>
-              <p>Nous serions ravi d'avoir votre avis sur votre expérience avec <strong>Val'Academy</strong>. Votre témoignage nous aide à continuer à améliorer nos formations et nos services.</p>
+              <p>Nous serions ravi d'avoir votre avis sur votre expérience avec <strong>Academy</strong>. Votre témoignage nous aide à continuer à améliorer nos formations et nos services.</p>
               <p>👇 Cliquez sur le bouton ci-dessous pour accéder au formulaire sécurisé :</p>
               <div class="cta-link">
                 <a href="${lien}" class="cta-button">Donner mon avis</a>
@@ -103,7 +103,7 @@ envoyerInvitation = async (email, token) => {
               </div>
             </div>
             <div class="footer">
-              <p>© 2026 Val'Academy. Tous droits réservés.</p>
+              <p>© 2026 Academy. Tous droits réservés.</p>
             </div>
           </div>
         </body>

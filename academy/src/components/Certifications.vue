@@ -2,7 +2,7 @@
   <section class="certifications" id="certifications">
     <div class="container">
       <h2>Qualité et Certification</h2>
-      <p class="section-sub">Val'Academy est certifiée et reconnue par les organismes les plus prestigieux. Nous garantissons une formation de qualité supérieure.</p>
+      <p class="section-sub">Academy est certifiée et reconnue par les organismes les plus prestigieux. Nous garantissons une formation de qualité supérieure.</p>
 
       <div class="certs-grid">
         <div class="cert-item">

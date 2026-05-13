@@ -8,7 +8,7 @@
   <Formations />
   <Gallery />
   <FAQ />
-  <Localisation />
+  <!-- <Localisation /> -->
   <Certifications />
   <ContactForm />
   <Footer />
@@ -24,7 +24,7 @@ import StatsBanner from "../components/StatsBanner.vue"
 import Testimonials from "../components/Testimonials.vue"
 import Gallery from "../components/Gallery.vue"
 import FAQ from "../components/FAQ.vue"
-import Localisation from "../components/Localisation.vue"
+// import Localisation from "../components/Localisation.vue"
 import Certifications from "../components/Certifications.vue"
 import Formations from "../components/Formations.vue"
 import ContactForm from "../components/FormsSections.vue"

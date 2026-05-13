@@ -46,7 +46,7 @@ const faqItems = [
   },
   {
     question: "Qui peut me garantir le remboursement des frais de formation ?",
-    answer: "Les OPCO (Opérateurs de Compétences) sont responsables du financement des formations. Val'Academy est agréée auprès de tous les OPCO majeurs, garantissant ainsi le remboursement des frais de formation pour les entreprises affiliées."
+    answer: "Les OPCO (Opérateurs de Compétences) sont responsables du financement des formations. Academy est agréée auprès de tous les OPCO majeurs, garantissant ainsi le remboursement des frais de formation pour les entreprises affiliées."
   },
   {
     question: "Je suis réticent à effectuer des formations car ça va occuper mes employés pendant le travail",

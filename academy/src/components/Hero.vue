@@ -6,7 +6,7 @@
         <div class="badge">✦ Centre de formation agréé</div>
 
         <h1>
-          VAL<em>ACADEMY</em><br />
+          <em>ACADEMY</em><br />
           INTERNATIONAL<br />
           Formations<br />
           <!-- <span>HACCP</span> -->

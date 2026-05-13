@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="nav-inner">
       <a href="#" class="logo" aria-label="Accueil">
-        <img src="/src/assets/logo_val_academy.png" alt="Logo ValAcademy" class="logo-img" />
+        Academy
       </a>
       <button class="burger" @click="showMenu = !showMenu" aria-label="Menu" v-if="isMobile">
         <span :class="{'open': showMenu}"></span>
