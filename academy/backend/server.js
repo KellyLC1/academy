@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-
+// Frontend local
 const allowedOrigins = [
-  'http://localhost:5173', // Frontend local
-  // Ajoute ici d'autres domaines autorisés
+  'http://localhost:5173',
+  'https://academy-pearl-xi.vercel.app',
 ];
 
 const corsOptions = {
