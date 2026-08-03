@@ -8,8 +8,7 @@
   <Formations />
   <Gallery />
   <FAQ />
-  <!-- <Localisation /> -->
-  <Certifications />
+   <Certifications />
   <ContactForm />
   <Footer />
   <ScrollToTop />
