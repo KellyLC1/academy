@@ -739,7 +739,7 @@ onMounted(() => {
 
   .formation-card,
   .formation-card.expanded {
-    width: 100% !important;
+    width: min(100%, 420px) !important;
     max-width: 100% !important;
     height: 220px;
     min-width: 0;

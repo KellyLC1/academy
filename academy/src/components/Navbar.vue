@@ -140,11 +140,13 @@ onUnmounted(() => {
 
 @media (max-width: 900px) {
   .navbar {
-    padding: 6px 4%;
+    padding: 6px 12px;
   }
 
   .nav-inner {
     height: 52px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .logo {
@@ -158,6 +160,7 @@ onUnmounted(() => {
     margin-left: auto;
     z-index: 2;
     padding: 6px;
+    flex-shrink: 0;
   }
 
   .burger span {
@@ -168,9 +171,9 @@ onUnmounted(() => {
   .nav-links {
     position: absolute;
     top: calc(100% + 6px);
-    left: -4%;
-    right: -4%;
-    width: calc(100% + 8%);
+    left: 0;
+    right: 0;
+    width: 100%;
     background: rgba(255,253,248,0.98);
     flex-direction: column;
     gap: 0;
