@@ -1,91 +1,108 @@
-# Academy
+# Val'Academy International
 
-Plateforme complète pour centre de formation professionnelle : gestion des formations, galerie photos, avis clients dynamiques, et espace admin sécurisé.
+Plateforme web pour centre de formation professionnelle : gestion des formations, galerie photos, avis clients, formulaires de contact et d'inscription, et espace admin sécurisé.
+
+🌐 **Site en ligne :** https://academy-pearl-xi.vercel.app
 
 ## Technologies utilisées
 
 - **Frontend** : Vue.js 3, Vite, Axios, Swiper, CSS3
 - **Backend** : Node.js, Express, Mongoose (MongoDB), JWT, bcryptjs, express-rate-limit, express-validator, CORS, Nodemailer
-- **Outils de développement** : Mailtrap (test email), Git, VS Code
+- **Base de données** : MongoDB Atlas
+- **Déploiement** : Vercel (frontend), Render (backend)
+- **Outils de développement** : Git, GitHub, VS Code, Mailtrap
 
 ## Fonctionnalités principales
 
 - **Frontend Vue.js 3**
-  - Affichage dynamique des formations (slider, modale, animations)
-  - Galerie photos (masonry, zoom, responsive)
-  - Affichage des avis clients validés
-  - Formulaire d’avis sécurisé via lien d’invitation
-  - Tableau de bord admin (CRUD formations, galerie, avis, invitations)
-  - Authentification admin JWT
+  - Affichage dynamique des formations
+  - Galerie photos responsive
+  - Affichage des avis clients
+  - Formulaires de contact et d'inscription
+  - Espace d'administration
+
+- **Administration**
+  - Authentification admin avec JWT
+  - Gestion des formations
+  - Gestion de la galerie
+  - Gestion des avis
+  - Gestion des inscriptions
+  - Gestion des demandes de contact
+  - Gestion des administrateurs
 
 - **Backend Node.js/Express/MongoDB**
-  - API REST sécurisée (CORS, rate limit, validation)
-  - Modèles Mongoose : User (admin), Formation, GalleryPhoto, Testimonial
-  - Gestion des invitations d’avis par email (Mailtrap/Nodemailer)
-  - CRUD formations, galerie, avis (admin)
-  - Génération de tokens d’invitation uniques
+  - API REST
+  - Validation des données
+  - Protection contre les requêtes excessives
+  - CORS
+  - Authentification JWT
+  - Hashage des mots de passe avec bcrypt
+  - Envoi d'emails avec Nodemailer
+
+## Fonctionnement des avis clients
+
+- L'administrateur génère une invitation pour un client
+- Le client reçoit un lien unique par email
+- Il accède à un formulaire pour laisser son avis
+- L'avis peut ensuite être géré depuis l'espace admin
+
+## Sécurité
+
+- Authentification JWT pour l'administration
+- Mots de passe hashés avec bcrypt
+- Validation des données
+- Rate limiting
+- CORS configuré
+- Variables sensibles stockées dans des variables d'environnement
+
+## Déploiement
+
+Le frontend est déployé sur Vercel et le backend sur Render.
+
+La base de données utilise MongoDB Atlas.
+
+Les emails sont gérés avec Nodemailer et testés avec Mailtrap.
 
 ## Installation & développement
 
 1. **Cloner le repo**
-2. **Installer les dépendances**
-   - Backend :
-     ```bash
-     cd val-academy/backend
-     npm install
-     ```
-   - Frontend :
-     ```bash
-     cd ../
-     npm install
-     ```
-3. **Configurer les variables d’environnement**
-   - Backend : `.env` (voir `.env.example`)
-   - Frontend : (optionnel)
-4. **Lancer le backend**
    ```bash
-   cd backend
-   npm start
-   ```
-5. **Lancer le frontend**
-   ```bash
-   cd ..
-   npm run dev
-   ```
+   git clone https://github.com/KellyLC1/academy.git
 
+Installer les dépendances du backend
 
-### Création de l’admin
-- Après installation, créer un compte admin avec le script dédié :
-  ```bash
-  cd backend
-  node scripts/createAdmin.js
-  ```
-- Suivre les instructions pour définir l’email et le mot de passe admin.
+cd academy/academy/backend
+npm install
 
-## Fonctionnement des avis clients (work in progress)
+Installer les dépendances du frontend
 
-- L’admin génère une invitation (email du client)
-- Le client reçoit un lien unique (token)
-- Il accède à un formulaire sécurisé pour laisser son avis
-- L’avis est validé et affiché publiquement après soumission
+cd ../
+npm install
 
-## Sécurité
-- Authentification JWT pour l’admin
-- Rate limiting, validation stricte, CORS restreint
-- Suppression automatique des invitations d’avis en doublon
+Configurer les variables d'environnement
 
-## Déploiement
-- Compatible Render, Railway, Vercel, Netlify, etc.
-- Variables d’environnement à adapter en production (MongoDB, SMTP, JWT, etc.)
+Créer un fichier .env dans le backend avec les variables nécessaires (MongoDB, JWT, SMTP, etc.).
 
-## Démo & tests
-- Envoi d’emails en sandbox avec Mailtrap (voir `.env`)
-- Toutes les fonctionnalités testées en local et prêtes pour la production
+Lancer le backend
 
-## Auteur
-- KellyLC1
+node server.js
 
----
+Lancer le frontend
 
-Pour toute question ou aide au déploiement, voir le README ou contacter le mainteneur.
+npm run dev
+Création d'un admin
 
+Un script permet de créer un administrateur :
+
+cd academy/academy/backend
+node create-admin.js
+
+Le mot de passe est hashé avant d'être enregistré dans MongoDB.
+
+Démo
+
+🌐 https://academy-pearl-xi.vercel.app
+
+Auteur
+
+KellyLC1
