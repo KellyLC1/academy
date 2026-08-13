@@ -23,7 +23,7 @@ const router = useRouter()
 async function login() {
   error.value = ''
   try {
-    const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/admin/login`, {
+    const res = await axios.post('https://academy-m9eq.onrender.com/api/admin/login', {
       username: username.value,
       password: password.value
   })
