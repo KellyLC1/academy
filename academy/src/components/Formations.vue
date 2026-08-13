@@ -16,10 +16,10 @@
             :style="{ backgroundImage: `url('${formation.image || '/src/assets/hero.png'}')` }"
             @mouseenter="hovered = formation._id"
             @mouseleave="hovered = null"
-            :class="{ expanded: hovered === formation._id }"
+            :class="{ expanded: hovered === formation._id || isMobile }"
           >
             <transition name="fade-slide">
-              <div v-if="hovered === formation._id" class="overlay">
+              <div v-if="hovered === formation._id || isMobile" class="overlay">
                 <div class="formation-title">{{ formation.title }}</div>
                 <button class="cta" @click="openModal(formation)">En savoir plus</button>
               </div>
@@ -115,8 +115,11 @@ const hovered = ref(null);
 const modalFormation = ref(null);
 const maxVisible = ref(5);
 const currentIndex = ref(0);
+const isMobile = ref(false);
 
 function updateMaxVisible() {
+  isMobile.value = window.innerWidth <= 640;
+
   if (window.innerWidth <= 640) {
     maxVisible.value = 1;
   } else if (window.innerWidth <= 900) {
@@ -715,9 +718,14 @@ onMounted(() => {
     margin-bottom: 32px;
   }
 
+  .formations-slider-wrap {
+    display: block;
+  }
+
   .formations-cards {
     flex-direction: column;
     gap: 16px;
+    width: 100%;
   }
 
   .formation-card,
