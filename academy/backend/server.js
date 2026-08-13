@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
+
+app.set('trust proxy', 1);
+
 // Frontend local
 const allowedOrigins = [
   'http://localhost:5173',
