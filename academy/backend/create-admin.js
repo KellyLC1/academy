@@ -10,8 +10,8 @@ async function createAdmin() {
     console.log('MongoDB connecté');
     console.log('Base utilisée :', mongoose.connection.name);
 
-    const username = 'KellyLC';
-    const password = 'K4h1lF4rr3l';
+    const username = 'testAdmin2';
+    const password = 'AdminMdp';
 
     const hash = await bcrypt.hash(password, 10);
 
