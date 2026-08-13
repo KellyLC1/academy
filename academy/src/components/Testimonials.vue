@@ -266,4 +266,37 @@ onMounted(fetchTestimonials)
   }
 }
 
+@media (max-width: 640px) {
+  .temoignages {
+    overflow: hidden;
+  }
+
+  .container {
+    padding-inline: 12px;
+  }
+
+  .swiper {
+    height: auto;
+    padding: 20px 0 8px;
+  }
+
+  :deep(.swiper-slide) {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .card {
+    padding: 20px 18px;
+  }
+
+  .text {
+    min-height: 0;
+    max-height: none;
+  }
+
+  .custom-swiper-button {
+    display: none;
+  }
+}
+
 </style>

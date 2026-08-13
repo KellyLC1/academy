@@ -174,4 +174,15 @@
   letter-spacing: 0.5px;
 }
 
+@media (max-width: 768px) {
+  .certs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cert-item {
+    padding: 24px 20px;
+  }
+}
+
 </style>

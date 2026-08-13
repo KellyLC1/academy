@@ -259,6 +259,18 @@ button:disabled {
   box-shadow: 0 2px 8px rgba(34,197,94,0.07);
   border: 1px solid #b6e7c9;
 }
+
+@media (max-width: 768px) {
+  .forms-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .form-card {
+    padding: 22px 18px;
+  }
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.4s;
 }

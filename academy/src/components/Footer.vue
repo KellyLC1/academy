@@ -167,4 +167,16 @@ footer {
   font-size: 12px;
   font-weight: 500;
 }
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 </style>

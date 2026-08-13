@@ -344,6 +344,10 @@ h1 em {
 }
 
 @media (max-width: 600px) {
+  .stats-row {
+    flex-direction: column;
+  }
+
   .hero {
     padding-top: 80px;
     padding-bottom: 50px;
