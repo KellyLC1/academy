@@ -6,6 +6,11 @@ Plateforme web pour centre de formation professionnelle : gestion des formations
 
 🌐 **Site en ligne :** https://academy-pearl-xi.vercel.app
 
+🔐 **Accès à l'espace admin :**  
+Un compte de démonstration peut être fourni sur demande afin de tester les fonctionnalités d'administration.
+
+> L'espace admin permet de gérer les formations, la galerie et les avis clients.
+
 ## Technologies utilisées
 
 - **Frontend** : Vue.js 3, Vite, Axios, Swiper, CSS3
@@ -104,7 +109,5 @@ Le mot de passe est hashé avant d'être enregistré dans MongoDB.
 Démo
 
 🌐 https://academy-pearl-xi.vercel.app
-
-Auteur
 
 KellyLC1
