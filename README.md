@@ -1,5 +1,7 @@
 # Val'Academy International
 
+<img width="1902" height="893" alt="CaptureAcademy" src="https://github.com/user-attachments/assets/97259778-5669-49c2-a1d5-c04a9588b02a" />
+
 Plateforme web pour centre de formation professionnelle : gestion des formations, galerie photos, avis clients, formulaires de contact et d'inscription, et espace admin sécurisé.
 
 🌐 **Site en ligne :** https://academy-pearl-xi.vercel.app
