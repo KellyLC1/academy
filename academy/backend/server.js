@@ -8,6 +8,7 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:5173',
   'https://academy-pearl-xi.vercel.app',
+  'https://academy-mwncdwyaa-kelly-dev1.vercel.app',
 ];
 
 const corsOptions = {
