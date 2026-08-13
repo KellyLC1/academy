@@ -50,7 +50,7 @@ onUnmounted(() => {
   background: rgba(255, 253, 248, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 2px solid var(--accent);
-  padding: 14px 4%;
+  padding: 8px 4%;
 }
 
 .nav-inner {
@@ -61,7 +61,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 56px;
 }
 
 .logo {
@@ -140,24 +140,37 @@ onUnmounted(() => {
 
 @media (max-width: 900px) {
   .navbar {
-    padding: 10px 4%;
+    padding: 6px 4%;
   }
 
   .nav-inner {
-    height: 60px;
+    height: 52px;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+    line-height: 1;
+    z-index: 2;
   }
 
   .burger {
     display: flex;
     margin-left: auto;
     z-index: 2;
+    padding: 6px;
+  }
+
+  .burger span {
+    width: 22px;
+    height: 2.5px;
   }
 
   .nav-links {
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: calc(100% + 6px);
+    left: -4%;
+    right: -4%;
+    width: calc(100% + 8%);
     background: rgba(255,253,248,0.98);
     flex-direction: column;
     gap: 0;
@@ -175,7 +188,7 @@ onUnmounted(() => {
   .nav-links li {
     border-bottom: 1px solid rgba(245, 166, 35, 0.15);
     text-align: center;
-    padding: 18px 0;
+    padding: 16px 0;
   }
 
   .nav-cta {

@@ -19,7 +19,7 @@
             :class="{ expanded: hovered === formation._id || isMobile }"
           >
             <transition name="fade-slide">
-              <div v-if="hovered === formation._id || isMobile" class="overlay">
+              <div class="overlay" :class="{ forced: isMobile }">
                 <div class="formation-title">{{ formation.title }}</div>
                 <button class="cta" @click="openModal(formation)">En savoir plus</button>
               </div>
@@ -272,6 +272,11 @@ onMounted(() => {
   padding: 32px 24px 24px 24px;
   opacity: 1;
   transition: opacity 0.2s;
+}
+
+.overlay.forced {
+  opacity: 1;
+  display: flex;
 }
 .formation-title {
   color: #fff;
@@ -719,24 +724,40 @@ onMounted(() => {
   }
 
   .formations-slider-wrap {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
   }
 
   .formations-cards {
     flex-direction: column;
     gap: 16px;
     width: 100%;
+    overflow: visible;
   }
 
   .formation-card,
   .formation-card.expanded {
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     height: 220px;
+    min-width: 0;
+  }
+
+  .overlay {
+    padding: 18px 18px 16px;
   }
 
   .formation-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .cta {
+    padding: 10px 18px;
+    font-size: 0.9rem;
   }
 
   .modal-content {
