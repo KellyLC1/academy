@@ -83,7 +83,7 @@ const currentSlide = ref(0);
 
 async function fetchGallery() {
   try {
-    const res = await axios.get('http://localhost:5000/api/gallery');
+    const res = await axios.get('https://academy-m9eq.onrender.com/api/gallery');
     images.value = res.data;
   } catch (err) {
     images.value = [];

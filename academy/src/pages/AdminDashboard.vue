@@ -163,7 +163,7 @@ function getToken() {
 // Galerie
 async function fetchGallery() {
   try {
-    const res = await axios.get('http://localhost:5000/api/gallery', {
+    const res = await axios.get('https://academy-m9eq.onrender.com/api/gallery', {
       headers: { Authorization: 'Bearer ' + getToken() }
     })
     gallery.value = res.data
@@ -174,7 +174,7 @@ async function fetchGallery() {
 async function addPhoto() {
   photoError.value = ''
   try {
-    await axios.post('http://localhost:5000/api/gallery', newPhoto.value, {
+    await axios.post('https://academy-m9eq.onrender.com/api/gallery', newPhoto.value, {
       headers: { Authorization: 'Bearer ' + getToken() }
     })
     newPhoto.value = { url: '', title: '', formation: '' }
@@ -185,7 +185,7 @@ async function addPhoto() {
 }
 async function deletePhoto(id) {
   try {
-    await axios.delete(`http://localhost:5000/api/gallery/${id}`, {
+    await axios.delete(`https://academy-m9eq.onrender.com/api/gallery/${id}`, {
       headers: { Authorization: 'Bearer ' + getToken() }
     })
     fetchGallery()
@@ -197,7 +197,7 @@ async function deletePhoto(id) {
 // Formations
 async function fetchFormations() {
   try {
-    const res = await axios.get('http://localhost:5000/api/formation')
+    const res = await axios.get('https://academy-m9eq.onrender.com/api/formation')
     formations.value = res.data
   } catch (err) {
     formationError.value = 'Erreur chargement formations'
@@ -212,7 +212,7 @@ async function addFormation() {
       coursContent: newFormation.value.coursContent.split('\n').filter(c => c.trim()),
       pedagogicalMethods: newFormation.value.pedagogicalMethods.split('\n').filter(m => m.trim())
     }
-    await axios.post('http://localhost:5000/api/formation', formationData, {
+    await axios.post('https://academy-m9eq.onrender.com/api/formation', formationData, {
       headers: { Authorization: 'Bearer ' + getToken() }
     })
     newFormation.value = { 
@@ -253,7 +253,7 @@ async function updateFormation() {
         ? editFormationData.value.pedagogicalMethods
         : editFormationData.value.pedagogicalMethods.split('\n').filter(m => m.trim())
     }
-    await axios.put(`http://localhost:5000/api/formation/${editFormationData.value._id}`, formationData, {
+    await axios.put(`https://academy-m9eq.onrender.com/api/formation/${editFormationData.value._id}`, formationData, {
       headers: { Authorization: 'Bearer ' + getToken() }
     })
     editMode.value = false
@@ -283,7 +283,7 @@ function cancelEdit() {
 }
 async function deleteFormation(id) {
   try {
-    await axios.delete(`http://localhost:5000/api/formation/${id}`, {
+    await axios.delete(`https://academy-m9eq.onrender.com/api/formation/${id}`, {
       headers: { Authorization: 'Bearer ' + getToken() }
     })
     fetchFormations()
@@ -298,7 +298,7 @@ async function inviteTestimonial() {
   inviteLink.value = ''
   copied.value = false
   try {
-    const res = await axios.post('http://localhost:5000/api/testimonials/invite', { email: inviteEmail.value }, {
+    const res = await axios.post('https://academy-m9eq.onrender.com/api/testimonials/invite', { email: inviteEmail.value }, {
       headers: { Authorization: 'Bearer ' + getToken() }
     })
     inviteLink.value = `${window.location.origin}/avis?token=${res.data.token}`

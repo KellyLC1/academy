@@ -83,7 +83,7 @@ const sentInscription = ref(false)
 
 async function handleInscription() {
   try {
-    await axios.post('http://localhost:5000/api/inscription', {
+    await axios.post('https://academy-m9eq.onrender.com/api/inscription', {
       name: inscription.name,
       email: inscription.email,
       phone: inscription.phone,
@@ -105,7 +105,7 @@ const sentContact = ref(false)
 
 async function handleContact() {
   try {
-    await axios.post('http://localhost:5000/api/contact', {
+    await axios.post('https://academy-m9eq.onrender.com/api/contact', {
       name: contact.name,
       email: contact.email,
       message: contact.message

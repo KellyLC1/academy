@@ -33,7 +33,7 @@ onMounted(async () => {
     return;
   }
   try {
-    await axios.get(`http://localhost:5000/api/testimonials/pending/${token.value}`);
+    await axios.get(`https://academy-m9eq.onrender.com/api/testimonials/pending/${token.value}`);
   } catch {
     error.value = 'Lien d’invitation expiré ou déjà utilisé.';
   }
@@ -42,7 +42,7 @@ onMounted(async () => {
 async function submitTestimonial() {
   error.value = '';
   try {
-    await axios.post('http://localhost:5000/api/testimonials/add', {
+    await axios.post('https://academy-m9eq.onrender.com/api/testimonials/add', {
       name: name.value,
       text: text.value,
       token: token.value

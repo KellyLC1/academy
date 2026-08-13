@@ -9,7 +9,7 @@ const formations = ref([]);
 
 async function fetchFormations() {
   try {
-    const res = await axios.get('http://localhost:5000/api/formation');
+    const res = await axios.get('https://academy-m9eq.onrender.com/api/formation');
     formations.value = res.data;
   } catch (err) {
     formations.value = [];

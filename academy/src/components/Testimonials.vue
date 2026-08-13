@@ -70,7 +70,7 @@ const testimonials = ref([])
 
 async function fetchTestimonials() {
   try {
-    const res = await axios.get('http://localhost:5000/api/testimonials')
+    const res = await axios.get('https://academy-m9eq.onrender.com/api/testimonials')
     testimonials.value = res.data
   } catch (err) {
     testimonials.value = []
