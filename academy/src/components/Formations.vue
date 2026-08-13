@@ -113,13 +113,28 @@ import axios from 'axios';
 const formations = ref([]);
 const hovered = ref(null);
 const modalFormation = ref(null);
-const maxVisible = 5;
+const maxVisible = ref(5);
 const currentIndex = ref(0);
+
+function updateMaxVisible() {
+  if (window.innerWidth <= 640) {
+    maxVisible.value = 1;
+  } else if (window.innerWidth <= 900) {
+    maxVisible.value = 2;
+  } else {
+    maxVisible.value = 5;
+  }
+
+  if (currentIndex.value + maxVisible.value > formations.value.length) {
+    currentIndex.value = Math.max(0, formations.value.length - maxVisible.value);
+  }
+}
 
 async function fetchFormations() {
   try {
     const res = await axios.get('https://academy-m9eq.onrender.com/api/formation');
     formations.value = res.data || [];
+    updateMaxVisible();
   } catch (err) {
     console.error('Erreur lors du chargement des formations:', err);
     formations.value = [];
@@ -127,11 +142,11 @@ async function fetchFormations() {
 }
 
 const visibleFormations = computed(() =>
-  formations.value.slice(currentIndex.value, currentIndex.value + maxVisible)
+  formations.value.slice(currentIndex.value, currentIndex.value + maxVisible.value)
 );
 
 function nextSlide() {
-  if (currentIndex.value + maxVisible < formations.value.length) {
+  if (currentIndex.value + maxVisible.value < formations.value.length) {
     currentIndex.value++;
   }
 }
@@ -158,7 +173,11 @@ function goToContact() {
   }
 }
 
-onMounted(fetchFormations);
+onMounted(() => {
+  fetchFormations();
+  updateMaxVisible();
+  window.addEventListener('resize', updateMaxVisible);
+});
 </script>
 
 <style scoped>
@@ -664,18 +683,25 @@ onMounted(fetchFormations);
   }
 
   .formations-cards {
-    flex-direction: column;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     gap: 18px;
+    overflow: hidden;
   }
 
   .formation-card, .formation-card.expanded {
-    width: 95vw;
-    max-width: 350px;
+    width: min(100%, 320px);
+    max-width: 320px;
+  }
+
+  .arrow {
+    display: none;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .formations {
     padding: 50px 4%;
   }
@@ -689,9 +715,16 @@ onMounted(fetchFormations);
     margin-bottom: 32px;
   }
 
-  .formation-card {
+  .formations-cards {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .formation-card,
+  .formation-card.expanded {
     width: 100%;
-    height: 240px;
+    max-width: 100%;
+    height: 220px;
   }
 
   .formation-title {
