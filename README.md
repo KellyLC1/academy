@@ -73,6 +73,7 @@ Le projet continue d'évoluer avec l'ajout progressif de fonctionnalités destin
 - ✅ Gestion des statuts : nouveau, lu, traité
 - 🔔 Notifications pour les nouvelles demandes
 - 📊 Ajout de statistiques et d'indicateurs dans le dashboard
+- Filtres dans l'espace  admin
 
 ## Déploiement
 
