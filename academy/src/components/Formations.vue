@@ -203,6 +203,10 @@ onMounted(() => {
   margin-bottom: 48px;
 }
 
+/* =========================
+   SLIDER FORMATIONS
+========================= */
+
 .formations-slider-wrap {
   display: flex;
   align-items: center;
@@ -211,6 +215,7 @@ onMounted(() => {
 }
 
 .arrow {
+  flex-shrink: 0;
   background: var(--primary);
   color: white;
   border: none;
@@ -222,18 +227,21 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .arrow:hover:not(:disabled) {
   background: var(--primary-hover);
+  transform: scale(1.05);
 }
 
 .arrow:disabled {
   background: #e0e0e0;
   color: #aaa;
   cursor: default;
+  transform: none;
 }
+
 .formations-cards {
   display: flex;
   gap: 28px;
@@ -242,34 +250,44 @@ onMounted(() => {
   overflow: hidden;
   min-width: 0;
 }
+
 .formation-card {
   width: 200px;
   height: 320px;
+  flex-shrink: 0;
   border-radius: 18px;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 2px 12px rgba(31,41,55,0.09);
+  box-shadow: 0 2px 12px rgba(31, 41, 55, 0.09);
   position: relative;
   overflow: hidden;
-  transition: width 0.35s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+  transition:
+    width 0.35s cubic-bezier(.4, 2, .6, 1),
+    box-shadow 0.2s;
   cursor: pointer;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
+
 .formation-card.expanded {
   width: 350px;
-  box-shadow: 0 8px 32px rgba(31,41,55,0.18);
+  box-shadow: 0 8px 32px rgba(31, 41, 55, 0.18);
 }
+
 .overlay {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(180deg,rgba(0,0,0,0.18) 40%,rgba(0,0,0,0.55) 100%);
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.18) 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  padding: 32px 24px 24px 24px;
+  padding: 32px 24px 24px;
   opacity: 1;
   transition: opacity 0.2s;
 }
@@ -278,13 +296,15 @@ onMounted(() => {
   opacity: 1;
   display: flex;
 }
+
 .formation-title {
   color: #fff;
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 18px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
+
 .cta {
   background: var(--accent);
   color: #2A2A2A;
@@ -300,16 +320,26 @@ onMounted(() => {
 .cta:hover {
   background: var(--accent-hover);
 }
-.fade-slide-enter-active, .fade-slide-leave-active {
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
   transition: opacity 0.3s, transform 0.3s;
 }
-.fade-slide-enter-from, .fade-slide-leave-to {
+
+.fade-slide-enter-from,
+.fade-slide-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
+
+
+/* =========================
+   MODALE
+========================= */
+
 .modal-bg {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   display: flex;
@@ -324,6 +354,7 @@ onMounted(() => {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -348,6 +379,7 @@ onMounted(() => {
     transform: translateY(50px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -461,8 +493,6 @@ onMounted(() => {
   max-height: calc(85vh - 100px);
 }
 
-
-
 .modal-description {
   margin-bottom: 32px;
 }
@@ -517,8 +547,7 @@ onMounted(() => {
   color: var(--text-mid);
   line-height: 1.8;
   font-size: 14px;
-  padding: 8px 0;
-  padding-left: 24px;
+  padding: 8px 0 8px 24px;
   position: relative;
 }
 
@@ -547,7 +576,11 @@ onMounted(() => {
 }
 
 .modal-cta {
-  background: linear-gradient(135deg, var(--accent) 0%, #F0D630 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    #F0D630 100%
+  );
   color: #2A2A2A;
   border: none;
   border-radius: 12px;
@@ -569,7 +602,37 @@ onMounted(() => {
   transform: translateY(0);
 }
 
+
+/* =========================
+   TABLETTE
+========================= */
+
 @media (max-width: 900px) {
+
+  /* Formations */
+
+  .formations {
+    padding: 60px 5%;
+  }
+
+  .formations h2 {
+    font-size: 28px;
+  }
+
+  .formations-cards {
+    gap: 18px;
+  }
+
+  .formation-card {
+    width: 160px;
+  }
+
+  .formation-card.expanded {
+    width: 280px;
+  }
+
+  /* Modale */
+
   .modal-header {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -593,17 +656,87 @@ onMounted(() => {
   .modal-content {
     width: 95vw;
   }
-
-  .modal-info-col h2 {
-    font-size: 26px;
-  }
-
-  .modal-details {
-    grid-template-columns: 1fr;
-  }
 }
 
-@media (max-width: 600px) {
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+
+  /* Formations */
+
+  .formations {
+    padding: 50px 4%;
+  }
+
+  .formations h2 {
+    font-size: 24px;
+  }
+
+  .section-sub {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+
+  .formations-slider-wrap {
+    width: 100%;
+    gap: 12px;
+    flex-direction: row;
+  }
+
+  .formations-cards {
+    flex: 1;
+    width: auto;
+    gap: 0;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .formation-card,
+  .formation-card.expanded {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 300px;
+  }
+
+  .arrow {
+    display: flex;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    font-size: 1.4rem;
+  }
+
+  .overlay {
+    padding: 18px;
+  }
+
+  .formation-title {
+    font-size: 1.05rem;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .cta {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  /* Modale */
+
+  .modal-bg {
+    padding: 10px;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 16px;
+  }
+
   .modal-header {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -638,10 +771,11 @@ onMounted(() => {
 
   .modal-body {
     padding: 20px;
-    max-height: calc(85vh - 300px);
+    max-height: calc(90vh - 300px);
   }
 
   .modal-grid {
+    grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px;
   }
@@ -654,124 +788,9 @@ onMounted(() => {
     height: 40px;
   }
 
-  .modal-info-col h2 {
-    font-size: 22px;
-    margin-bottom: 16px;
-  }
-
-  .detail-value {
-    font-size: 16px;
-  }
-
-  .modal-description h3 {
-    font-size: 16px;
-  }
-
-  .modal-description p {
-    font-size: 14px;
-  }
-
   .modal-cta {
     width: 100%;
     text-align: center;
-  }
-}
-@media (max-width: 900px) {
-  .formations {
-    padding: 60px 5%;
-  }
-
-  .formations h2 {
-    font-size: 28px;
-  }
-
-  .formations-slider-wrap {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .formations-cards {
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-    overflow: hidden;
-  }
-
-  .formation-card, .formation-card.expanded {
-    width: min(100%, 320px);
-    max-width: 320px;
-  }
-
-  .arrow {
-    display: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .formations {
-    padding: 50px 4%;
-  }
-
-  .formations h2 {
-    font-size: 24px;
-  }
-
-  .section-sub {
-    font-size: 14px;
-    margin-bottom: 32px;
-  }
-
-  .formations-slider-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-  }
-
-  .formations-cards {
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    overflow: visible;
-  }
-
-  .formation-card,
-  .formation-card.expanded {
-    width: min(100%, 420px) !important;
-    max-width: 100% !important;
-    height: 220px;
-    min-width: 0;
-  }
-
-  .overlay {
-    padding: 18px 18px 16px;
-  }
-
-  .formation-title {
-    font-size: 1.05rem;
-    line-height: 1.3;
-    margin-bottom: 10px;
-  }
-
-  .cta {
-    padding: 10px 18px;
-    font-size: 0.9rem;
-  }
-
-  .modal-content {
-    padding: 28px 20px;
-    margin: 20px;
-  }
-
-  .modal-content h3 {
-    font-size: 20px;
-  }
-
-  .close-btn {
-    padding: 10px 20px;
-    font-size: 14px;
   }
 }
 </style>
