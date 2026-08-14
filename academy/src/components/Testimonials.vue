@@ -98,15 +98,45 @@ onMounted(fetchTestimonials)
   line-height: 1.7;
 }
 
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* =========================
+   CAROUSEL
+========================= */
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  padding: 0 50px;
+}
+
 .swiper {
+  width: 100%;
   padding: 40px 0 10px;
-  height: 300px; /* hauteur fixe pour aligner les cards */
+  height: 300px;
+}
+
+:deep(.swiper-wrapper) {
+  align-items: stretch;
 }
 
 :deep(.swiper-slide) {
   height: 100%;
   display: flex;
   align-items: stretch;
+  box-sizing: border-box;
 }
 
 .card {
@@ -118,6 +148,7 @@ onMounted(fetchTestimonials)
   width: 100%;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   transition: transform 0.25s, box-shadow 0.25s;
 }
 
@@ -125,6 +156,10 @@ onMounted(fetchTestimonials)
   transform: translateY(-4px);
   box-shadow: 0 10px 28px rgba(175, 164, 206, 0.15);
 }
+
+/* =========================
+   CONTENU AVIS
+========================= */
 
 .stars {
   color: var(--accent);
@@ -161,110 +196,76 @@ onMounted(fetchTestimonials)
   margin-top: 2px;
 }
 
-.swiper-nav {
-  position: relative;
-  width: 100%;
-  height: 0;
-}
-:deep(.swiper-button-prev),
-:deep(.swiper-button-next) {
-  color: var(--accent) !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-:deep(.swiper-button-prev)::after,
-:deep(.swiper-button-next)::after {
-  color: var(--accent) !important;
-  font-size: 38px !important;
-}
-:deep(.swiper-button-prev):hover,
-:deep(.swiper-button-next):hover {
-  color: var(--accent-hover) !important;
-}
-:deep(.swiper-button-disabled),
-:deep(.swiper-button-disabled)::after {
-  color: #f5df4d80 !important;
-  opacity: 0.7 !important;
-}
-
-.container {
-  max-width: 1200px; /* ou 1400px, selon ton besoin */
-  margin: 0 auto;
-  position: relative;
-  padding-inline: 80px;
-}
-:deep(.swiper-button-prev) {
-  left: 0;
-}
-:deep(.swiper-button-next) {
-  right: 0;
-}
-
-.carousel-wrapper {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* =========================
+   FLÈCHES
+========================= */
 
 .custom-swiper-button {
   position: absolute;
   top: 50%;
   z-index: 20;
-  width: 38px;
-  height: 38px;
+
+  width: 40px;
+  height: 40px;
+
   background: none;
   border: none;
+
   color: var(--accent);
-  font-size: 44px;
+  font-size: 46px;
+  line-height: 1;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   cursor: pointer;
   transform: translateY(-50%);
-  transition: color 0.2s;
+
+  transition: color 0.2s, transform 0.2s;
+
   padding: 0;
   user-select: none;
 }
 
+.custom-swiper-button:hover {
+  color: var(--accent-hover);
+  transform: translateY(-50%) scale(1.1);
+}
+
 .custom-swiper-button.prev {
-  left: -48px;
+  left: 0;
 }
 
 .custom-swiper-button.next {
-  right: -48px;
+  right: 0;
 }
 
-.custom-swiper-button:hover {
-  color: var(--accent-hover);
-}
+/* =========================
+   TABLETTE
+========================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   .container {
-    padding-inline: 24px;
+    max-width: 100%;
   }
-  :deep(.swiper-button-prev),
-  :deep(.swiper-button-next) {
-    width: 28px;
-    height: 28px;
-    font-size: 28px !important;
-  }
-  :deep(.swiper-button-prev)::after,
-  :deep(.swiper-button-next)::after {
-    font-size: 28px !important;
-  }
+
   .carousel-wrapper {
-    max-width: 100vw;
+    padding: 0 40px;
   }
-  .custom-swiper-button.prev {
-    left: -16px;
+
+  .swiper {
+    height: 300px;
   }
-  .custom-swiper-button.next {
-    right: -16px;
+
+  .custom-swiper-button {
+    font-size: 40px;
   }
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 640px) {
   .temoignages {
@@ -275,7 +276,22 @@ onMounted(fetchTestimonials)
     padding-inline: 12px;
   }
 
+  .temoignages h2 {
+    font-size: 28px;
+  }
+
+  .section-sub {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .carousel-wrapper {
+    padding: 0;
+    width: 100%;
+  }
+
   .swiper {
+    width: 100%;
     height: auto;
     padding: 20px 0 8px;
   }
@@ -298,5 +314,4 @@ onMounted(fetchTestimonials)
     display: none;
   }
 }
-
 </style>
