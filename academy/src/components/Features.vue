@@ -75,16 +75,13 @@ const features = [
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
 
 .card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-  transition: transform 0.25s, box-shadow 0.25s;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .card:hover {
@@ -126,17 +123,31 @@ const features = [
 }
 
 @media (max-width: 600px) {
+  .features {
+    overflow: hidden;
+  }
+
   .features h2 {
     font-size: 28px;
   }
 
+  .section-sub {
+    max-width: 100%;
+  }
+
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
   }
 
   .card {
+    width: 100%;
+    min-width: 0;
     padding: 20px 18px;
+  }
+
+  .card p {
+    overflow-wrap: break-word;
   }
 }
 </style>

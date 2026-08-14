@@ -142,7 +142,7 @@ async function handleContact() {
 
 .forms-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
 }
 
@@ -154,6 +154,8 @@ async function handleContact() {
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-width: 0;
+  width: 100%;
 }
 
 .form-header {
@@ -161,6 +163,11 @@ async function handleContact() {
   align-items: flex-start;
   gap: 14px;
   margin-bottom: 28px;
+  min-width: 0;
+}
+
+.form-header > div:last-child {
+  min-width: 0;
 }
 
 .form-icon {
@@ -187,6 +194,14 @@ form {
   flex-direction: column;
   flex: 1;
   gap: 14px;
+}
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 input,
@@ -261,20 +276,28 @@ button:disabled {
 }
 
 @media (max-width: 768px) {
+  .forms-section {
+    overflow: hidden;
+  }
+
   .forms-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
   }
 
   .form-card {
+    width: 100%;
+    min-width: 0;
     padding: 22px 18px;
   }
-}
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.4s;
-}
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
+  .form-header {
+    min-width: 0;
+  }
+
+  .form-title,
+  .form-desc {
+    overflow-wrap: break-word;
+  }
 }
 </style>
