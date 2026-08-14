@@ -62,6 +62,18 @@ Un compte de démonstration peut être fourni sur demande afin de tester les fon
 - CORS configuré
 - Variables sensibles stockées dans des variables d'environnement
 
+## 🔮 Évolutions prévues
+
+Le projet continue d'évoluer avec l'ajout progressif de fonctionnalités destinées à améliorer la gestion de la plateforme :
+
+- 👤 Gestion complète des administrateurs
+- ➕ Création de nouveaux comptes administrateurs depuis le dashboard
+- ✉️ Centralisation des messages de contact dans l'espace administrateur
+- 🎓 Centralisation et suivi des demandes d'inscription
+- ✅ Gestion des statuts : nouveau, lu, traité
+- 🔔 Notifications pour les nouvelles demandes
+- 📊 Ajout de statistiques et d'indicateurs dans le dashboard
+
 ## Déploiement
 
 Le frontend est déployé sur Vercel et le backend sur Render.
